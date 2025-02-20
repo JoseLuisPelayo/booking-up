@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Reservas con Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+¡Bienvenido al repositorio del Sistema de Reservas desarrollado con Laravel! Este proyecto es una aplicación web que permite a los usuarios realizar reservas en diferentes negocios, gestionar sus créditos, y visualizar sus reservas y slots disponibles.
 
-## About Laravel
+## Lo que Aprenderás
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto cubre los siguientes aspectos clave:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Modelado de Datos**: Diseño y modelado de la base de datos para el sistema de reservas, incluyendo entidades como negocios, horarios, usuarios y reservas.
+  
+- **Negocios y Horarios**: Implementación de la lógica para gestionar negocios, definir horarios de apertura/cierre, y especificar los días de disponibilidad.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Generación de Slots de Reserva**: Desarrollo de un comando personalizado para generar slots de reserva basados en las franjas horarias definidas para cada negocio.
 
-## Learning Laravel
+- **Créditos de Usuario**: Implementación de un sistema de créditos que permite a los usuarios realizar reservas solo si tienen suficientes créditos disponibles.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Funcionalidad de Reserva y Cancelación**: Lógica para que los usuarios puedan realizar y cancelar reservas.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Visualización de Reservas**: Interfaz para que los usuarios puedan ver sus reservas activas.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Visualización de Slots Disponibles**: Sistema para que los usuarios puedan visualizar los slots disponibles filtrando por año, mes, día y negocio.
 
-## Laravel Sponsors
+## Requisitos Previos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-### Premium Partners
+- PHP >= 8.0
+- Composer
+- MySQL
+- Laravel CLI
+- Node.js y NPM (para compilar assets)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Instalación
 
-## Contributing
+Sigue estos pasos para configurar el proyecto en tu máquina local:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clona el repositorio**:
+   ```
+   git clone https://github.com/tu-usuario/sistema-reservas-laravel.git
+   cd sistema-reservas-laravel
+   ```
+2. Instala las dependencias de Composer: 
 
-## Code of Conduct
+`composer install` 
+ 3. Instala las dependencias de NPM: 
+ `npm install` 
+ 4. Copia el archivo .env.example a .env: 
+`cp .env.example .env` 
+ 4. Genera una clave de aplicación: 
+`php artisan key:generate` 
+ 5. Configura la base de datos: 
+ Crea una base de datos MySQL para el proyecto. 
+ Actualiza el archivo .env con las credenciales de tu base de datos: 
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
+6. Ejecuta las migraciones y seeders: 
+`php artisan migrate --seed` 
+7. Compila los assets:
+`npm run dev` 
+8. Inicia el servidor de desarrollo: 
+`php artisan serve` 
+9. Accede a la aplicación: 
+Abre tu navegador y visita http://localhost:8000.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ - Uso 
+	- Generación de Slots de Reserva 
+		Para generar los slots de reserva, ejecuta el siguiente comando:
 
-## Security Vulnerabilities
+		`php artisan generate:reservation-slots` 
+		Este comando generará los slots de reserva basados en los horarios definidos para cada negocio. 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+	- Realizar una Reserva 
+	Inicia sesión como usuario.  
 
-## License
+	Navega hasta la página de un negocio. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+	Selecciona un slot disponible y realiza la reserva. 
+
+	- Cancelar una Reserva 
+		Ve a la sección "Mis Reservas". 
+		Selecciona la reserva que deseas cancelar y haz clic en "Cancelar". 
+
+	- Visualización de Slots Disponibles
+		Puedes filtrar los slots disponibles por año, mes, día y negocio en la página de búsqueda de slots.
+
+- Contribución
+	- Si deseas contribuir a este proyecto, sigue estos pasos:
+
+	- Haz un fork del repositorio.
+
+	- Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+
+	- Realiza tus cambios y haz commit (git commit -am 'Añade nueva funcionalidad').
+
+	- Haz push a la rama (git push origin feature/nueva-funcionalidad).
+
+	- Abre un Pull Request.
